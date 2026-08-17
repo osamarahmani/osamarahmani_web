@@ -85,6 +85,7 @@
 
 html {
   overflow-x: hidden;
+  font-size: 17px;
 }
 
 body {
@@ -295,6 +296,42 @@ body {
 
 #indiaClock .profile-meta-icon {
   animation: clock-glow 3s ease-in-out infinite;
+}
+
+/* --- Uptime badge (footer) --- */
+.footer-uptime {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.65rem;
+  font-weight: 700;
+  color: #aeb5c2;
+}
+
+.uptime-dot {
+  display: inline-block;
+  width: 0.45rem;
+  height: 0.45rem;
+  flex: none;
+  border-radius: 50%;
+  background: #4ade80;
+  box-shadow: 0 0 5px rgb(74 222 128 / 0.8);
+  animation: uptime-pulse 2s ease-in-out infinite;
+}
+
+.uptime-dot.down {
+  background: #f87171;
+  box-shadow: 0 0 5px rgb(248 113 113 / 0.8);
+}
+
+.uptime-dot.checking {
+  background: #facc15;
+  box-shadow: 0 0 5px rgb(250 204 21 / 0.7);
+}
+
+@keyframes uptime-pulse {
+  0%, 100% { opacity: 1;    transform: scale(1); }
+  50%       { opacity: 0.5; transform: scale(1.35); }
 }
 
 #clockText {

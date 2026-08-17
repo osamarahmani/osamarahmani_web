@@ -95,7 +95,7 @@
 @media (prefers-reduced-motion: reduce) { .animate-scrollLeft, .animate-scrollRight { animation-play-state: paused; } #indiaClock .profile-meta-icon { animation: none; } }
 .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
 .hide-scrollbar::-webkit-scrollbar { display: none; }
-html { overflow-x: hidden; }
+html { overflow-x: hidden; font-size: 17px; }
 body { min-width: 320px; overflow-x: clip; color: #f8fafc; font-family: "Manrope", ui-sans-serif, system-ui, sans-serif; background: radial-gradient(circle at 12% 10%, rgb(225 29 72 / 0.2), transparent 30rem), radial-gradient(circle at 88% 16%, rgb(127 29 29 / 0.18), transparent 28rem), linear-gradient(145deg, #080305 0%, #100509 52%, #030204 100%); color-scheme: dark; }
 .portfolio-page { position: relative; min-height: 100svh; isolation: isolate; }
 .portfolio-page::before { position: fixed; z-index: -1; inset: 0; background-image: linear-gradient(rgb(148 163 184 / 0.025) 1px, transparent 1px), linear-gradient(90deg, rgb(148 163 184 / 0.025) 1px, transparent 1px); background-size: 48px 48px; mask-image: linear-gradient(to bottom, black, transparent 85%); content: ""; pointer-events: none; }
@@ -120,6 +120,11 @@ body { min-width: 320px; overflow-x: clip; color: #f8fafc; font-family: "Manrope
 #indiaClock { position: relative; width: auto; min-width: 0; border-color: rgb(251 113 133 / 0.25); background: linear-gradient(135deg, rgb(60 24 38 / 0.82), rgb(27 30 47 / 0.9)); box-shadow: inset 0 1px 0 rgb(255 255 255 / 0.05); }
 #indiaClock::after { position: absolute; top: 0.42rem; right: 0.42rem; width: 0.3rem; height: 0.3rem; border-radius: 9999px; background: #4ade80; box-shadow: 0 0 7px rgb(74 222 128 / 0.8); content: ""; }
 #indiaClock .profile-meta-icon { animation: clock-glow 3s ease-in-out infinite; }
+.footer-uptime { display: inline-flex; align-items: center; gap: 0.35rem; font-size: 0.65rem; font-weight: 700; color: #aeb5c2; }
+.uptime-dot { display: inline-block; width: 0.45rem; height: 0.45rem; flex: none; border-radius: 50%; background: #4ade80; box-shadow: 0 0 5px rgb(74 222 128 / 0.8); animation: uptime-pulse 2s ease-in-out infinite; }
+.uptime-dot.down { background: #f87171; box-shadow: 0 0 5px rgb(248 113 113 / 0.8); }
+.uptime-dot.checking { background: #facc15; box-shadow: 0 0 5px rgb(250 204 21 / 0.7); }
+@keyframes uptime-pulse { 0%, 100% { opacity: 1; transform: scale(1); } 50% { opacity: 0.5; transform: scale(1.35); } }
 #clockText { display: inline-flex; min-width: 0; align-items: baseline; gap: 0.05rem; overflow: hidden; color: #f8fafc; font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace; font-size: 0.7rem; font-weight: 750; font-variant-numeric: tabular-nums; text-align: left; text-overflow: clip; white-space: nowrap; }
 .clock-flag { margin-right: 0.18rem; font-family: system-ui, sans-serif; font-size: 0.72rem; }
 #clockSeconds { min-width: 1.65rem; color: #fb7185; }
