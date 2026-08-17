@@ -1,34 +1,29 @@
+const clockHours = document.getElementById("clockHours");
+const clockSeconds = document.getElementById("clockSeconds");
+const clockPeriod = document.getElementById("clockPeriod");
 
-  const clockText = document.getElementById("clockText");
-  const clockWrapper = document.getElementById("indiaClock");
-  let showTime = true;
+const indiaClockFormatter = new Intl.DateTimeFormat("en-IN", {
+  timeZone: "Asia/Kolkata",
+  hour: "2-digit",
+  minute: "2-digit",
+  second: "2-digit",
+  hour12: true,
+});
 
-  function updateClock() {
-    clockWrapper.classList.add("opacity-0");
+function updateClock() {
+  const parts = Object.fromEntries(
+    indiaClockFormatter
+      .formatToParts(new Date())
+      .filter(({ type }) => type !== "literal")
+      .map(({ type, value }) => [type, value]),
+  );
 
-    setTimeout(() => {
-      const now = new Date();
-      const options = {
-        timeZone: "Asia/Kolkata",
-        hour: "2-digit",
-        minute: "2-digit",
-        second: "2-digit",
-        hour12: true,
-      };
+  clockHours.textContent = `${parts.hour}:${parts.minute}`;
+  clockSeconds.textContent = `:${parts.second}`;
+  clockPeriod.textContent = parts.dayPeriod.toLowerCase();
+}
 
-      if (showTime) {
-        const indiaTime = new Intl.DateTimeFormat("en-IN", options).format(now);
-        clockText.textContent = `🇮🇳 ${indiaTime}`;
-      } else {
-        clockText.textContent = `🕒 UTC+5:30`;
-      }
-
-      showTime = !showTime;
-      clockWrapper.classList.remove("opacity-0");
-    }, 400);
-
-    setTimeout(updateClock, 3000);
-  }
-
+if (clockHours && clockSeconds && clockPeriod) {
   updateClock();
-
+  setInterval(updateClock, 1000);
+}
