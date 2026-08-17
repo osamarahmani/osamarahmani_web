@@ -96,6 +96,9 @@
 .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
 .hide-scrollbar::-webkit-scrollbar { display: none; }
 html { overflow-x: hidden; font-size: 17px; }
+* { scrollbar-width: none; -ms-overflow-style: none; }
+*::-webkit-scrollbar { display: none; }
+
 body { min-width: 320px; overflow-x: clip; color: #f8fafc; font-family: "Manrope", ui-sans-serif, system-ui, sans-serif; background: radial-gradient(circle at 12% 10%, rgb(225 29 72 / 0.2), transparent 30rem), radial-gradient(circle at 88% 16%, rgb(127 29 29 / 0.18), transparent 28rem), linear-gradient(145deg, #080305 0%, #100509 52%, #030204 100%); color-scheme: dark; }
 .portfolio-page { position: relative; min-height: 100svh; isolation: isolate; }
 .portfolio-page::before { position: fixed; z-index: -1; inset: 0; background-image: linear-gradient(rgb(148 163 184 / 0.025) 1px, transparent 1px), linear-gradient(90deg, rgb(148 163 184 / 0.025) 1px, transparent 1px); background-size: 48px 48px; mask-image: linear-gradient(to bottom, black, transparent 85%); content: ""; pointer-events: none; }

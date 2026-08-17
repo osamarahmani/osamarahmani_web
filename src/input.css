@@ -88,6 +88,15 @@ html {
   font-size: 17px;
 }
 
+* {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+*::-webkit-scrollbar {
+  display: none;
+}
+
 body {
   min-width: 320px;
   overflow-x: clip;
